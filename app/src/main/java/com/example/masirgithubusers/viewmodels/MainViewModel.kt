@@ -40,10 +40,12 @@ class MainViewModel: ViewModel() {
         viewModelScope.launch {
             _status.value = GitApiStatus.LOADING
             try {
+                Log.e(TAG, "getGitUserList: test 1", )
                 _gitUsers.value = GitApi.retrofitService.getUserList()
                 Log.e(TAG, "getGitUserList: test ${gitUsers.value!!.get(0).username}", )
                 _status.value = GitApiStatus.DONE
             } catch (e: Exception) {
+                Log.e(TAG, "getGitUserList: test 3", )
                 _status.value = GitApiStatus.ERROR
                 _gitUsers.value = listOf()
             }

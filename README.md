@@ -4,13 +4,13 @@ MasirGithubUsers project
 
 Introduction
 ------------
-This project is created for recruitment challenge of Masir. Using "https://masir.io/github-users/" 
+This project is created for the recruitment challenge of Masir. Using "https://masir.io/github-users/"
 instruction.
 
-This app is created to get Github users and capable of searching thorough users. selecting a user 
-lead to show the user detail page and show its followers and following.
+This app is created to get Github users and is capable of searching through users. selecting a user
+shows the user detail page and its followers and following.
 
-For getting Github API it needs a Token which should be send to git server in the request header. 
+Getting Github API needs a Token which should be sent to the git server in the request header.
 the full instruction would be on "https://docs.github.com/en/rest/users?apiVersion=2022-11-28".
 
 Highlights

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    android:label="Profile Detail"
+    app:startDestination="@id/splashScreenFrag">
+
+    <fragment
+        android:id="@+id/splashScreenFrag"
+        android:name="com.example.masirgithubusers.view.SplashScreenFrag"
+        android:label="fragment_splash_screen"
+        tools:layout="@layout/fragment_splash_screen">
+        <action
+            android:id="@+id/action_splashScreenFrag_to_mainScreenFrag"
+            app:destination="@id/mainScreenFrag"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainScreenFrag"
+        android:name="com.example.masirgithubusers.view.MainScreenFrag"
+        android:label="Main Screen"
+        tools:layout="@layout/fragment_main_screen">
+        <action
+            android:id="@+id/action_mainScreenFrag_to_detailFrag"
+            app:destination="@id/detailFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFrag"
+        android:name="com.example.masirgithubusers.view.DetailFrag"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail"/>
+</navigation>

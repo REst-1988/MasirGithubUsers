@@ -9,7 +9,7 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 
-private const val GIT_INFINITE_TOKEN = "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"
+private const val GIT_INFINITE_TOKEN = "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"
 
 interface GitApiService {
     @GET("users")

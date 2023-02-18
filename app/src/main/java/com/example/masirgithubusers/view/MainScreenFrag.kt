@@ -31,12 +31,12 @@ class MainScreenFrag : Fragment() {
         // searching users using git api
         binding.searchViewHome.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                viewModel.getSearchUsers(query)
                 binding.searchViewHome.clearFocus()
                 return false
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
+                viewModel.getSearchUsers(newText)
                 if (newText.equals(null) || newText!!.isEmpty() || newText == ""){
                     viewModel.getGitUserList()
                 }

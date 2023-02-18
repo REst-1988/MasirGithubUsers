@@ -2,4 +2,5 @@
 <resources>
     <color name="background">#88000000</color>
     <color name="search_background">#000000</color>
+    <color name="bg_start_color">#FF6200EE</color>
 </resources>

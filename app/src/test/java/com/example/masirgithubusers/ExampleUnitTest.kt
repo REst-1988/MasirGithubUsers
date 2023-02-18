@@ -12,14 +12,9 @@ import org.junit.Before
  * See [testing documentation](http://d.android.com/tools/testing).
  */
 class ExampleUnitTest {
-/*    lateinit var viewModel: MainViewModel
+    lateinit var viewModel: MainViewModel
     @Before
     fun setUp(){
         viewModel = MainViewModel()
-    }*/
-
-    @Test
-    fun addition_isCorrect() {
-        assertEquals(4, 2 + 2)
     }
 }

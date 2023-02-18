@@ -6,6 +6,7 @@ Introduction
 ------------
 This project is created for the recruitment challenge of Masir. Using "https://masir.io/github-users/"
 instruction.
+You can watch a preview of the application on "https://drive.google.com/file/d/1quK4DVND56lOtlZP21GsN7bKSPSr9urv/view?usp=sharing"
 
 This app is created to get Github users and is capable of searching through users. selecting a user
 shows the user detail page and its followers and following.

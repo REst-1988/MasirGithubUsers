@@ -9,7 +9,6 @@ import com.example.masirgithubusers.view.FollowFrag
 
 class ViewPagerAdapter(activity: FragmentActivity?) : FragmentStateAdapter(activity!!) {
 
-
     private val mFragmentList: MutableList<Fragment> = ArrayList()
     private val mFragmentTitleList: MutableList<String> = ArrayList()
 

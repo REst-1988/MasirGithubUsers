@@ -16,42 +16,32 @@ enum class GitApiStatus { LOADING, ERROR, DONE }
 
 class MainViewModel: ViewModel() {
 
-
     // The internal MutableLiveData that stores the status of the most recent request
     private val _status = MutableLiveData<GitApiStatus>()
     // The external immutable LiveData for the request status
     val status: LiveData<GitApiStatus> = _status
+
     private val _gitUsers = MutableLiveData<List<GitUser>>()
     val gitUsers: LiveData<List<GitUser>> = _gitUsers
     private val _gitUser = MutableLiveData<UserModel>()
     var gitUser: LiveData<UserModel> = _gitUser
-
     private var _gitUsername = MutableLiveData<String> () //selected user for show detail
     val gitUsername: LiveData<String> = _gitUsername
-
     private val _followers = MutableLiveData<List<GitUser>>()
     val followers: LiveData<List<GitUser>> = _followers
-
     private val _following = MutableLiveData<List<GitUser>>()
     val following: LiveData<List<GitUser>> = _following
 
-
-    /**
-     * Call getMarsPhotos() on init so we can display status immediately.
-     */
     init {
-        getGitUserList()
+        getGitUserList() // setup list at entrance
     }
 
-    fun setGitUserValue(gitUser: String){
-        _gitUsername.value = gitUser
-    }
-
-    fun getGitUserList() {
+    fun getGitUserList() {  // all users, first screen
         viewModelScope.launch {
             _status.value = GitApiStatus.LOADING
             try {
                 _gitUsers.value = GitApi.retrofitService.getUserList()
+                Log.e(TAG, "getGitUserList: test ${gitUsers.value!!.get(0).username}", )
                 _status.value = GitApiStatus.DONE
             } catch (e: Exception) {
                 _status.value = GitApiStatus.ERROR
@@ -60,7 +50,7 @@ class MainViewModel: ViewModel() {
         }
     }
 
-    fun getSearchUser(q: String?) {
+    fun getSearchUsers(q: String?) { // when searching
         if (q != null) {
             viewModelScope.launch {
                 _status.value = GitApiStatus.LOADING
@@ -75,7 +65,7 @@ class MainViewModel: ViewModel() {
         }
     }
 
-    fun getUserDetail(username: String?) {
+    fun getUserDetail(username: String?) { // when selecting a user
         if (username != null) {
             viewModelScope.launch {
                 _status.value = GitApiStatus.LOADING
@@ -89,7 +79,7 @@ class MainViewModel: ViewModel() {
         }
     }
 
-    fun getFollowers(username: String?) {
+    fun getFollowers(username: String?) { // get a user followers
         if (username != null) {
             viewModelScope.launch {
                 _status.value = GitApiStatus.LOADING
@@ -103,7 +93,7 @@ class MainViewModel: ViewModel() {
         }
     }
 
-    fun getFollowing(username: String?) {
+    fun getFollowing(username: String?) { // get a user following
         if (username != null) {
             viewModelScope.launch {
                 _status.value = GitApiStatus.LOADING
@@ -120,5 +110,9 @@ class MainViewModel: ViewModel() {
         }
     }
 
+    // setting user username when it does selected on the list
+    fun setGitUserValue(gitUser: String){
+        _gitUsername.value = gitUser
+    }
 
 }

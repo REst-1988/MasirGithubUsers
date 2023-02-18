@@ -11,6 +11,7 @@ import com.example.masirgithubusers.R
 import com.example.masirgithubusers.model.GitUser
 import com.example.masirgithubusers.viewmodels.GitApiStatus
 
+// showing the received image given image view
 @BindingAdapter("imgUrl")
 fun bindImage(imageView: ImageView, url: String?){
     url?.let {
@@ -22,6 +23,7 @@ fun bindImage(imageView: ImageView, url: String?){
     }
 }
 
+// showing the list in MainScreen recycler view
 @BindingAdapter("listData")
 fun bindRecyclerView(recyclerView: RecyclerView,
                      data: List<GitUser>?) {
@@ -29,6 +31,7 @@ fun bindRecyclerView(recyclerView: RecyclerView,
     adapter.submitList(data)
 }
 
+// getting ready the MainScreen for showing list
 @BindingAdapter("gitApiStatus")
 fun bindStatus(view: View, status: GitApiStatus?){
     view.let {

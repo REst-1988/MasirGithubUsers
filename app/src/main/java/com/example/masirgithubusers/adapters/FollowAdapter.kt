@@ -12,6 +12,7 @@ import com.example.masirgithubusers.model.GitUser
 class FollowAdapter:
 ListAdapter<GitUser, FollowAdapter.GitUserViewHolder>(DiffUtilCallBack) {
 
+    // Diff call back does not used in this project yet but it would be handy for future changes
     companion object DiffUtilCallBack : DiffUtil.ItemCallback<GitUser>() {
         override fun areItemsTheSame(oldItem: GitUser, newItem: GitUser): Boolean {
             return oldItem.id == newItem.id

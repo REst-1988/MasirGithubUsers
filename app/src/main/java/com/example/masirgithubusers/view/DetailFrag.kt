@@ -15,14 +15,26 @@ import com.google.android.material.tabs.TabLayoutMediator
 class DetailFrag : Fragment() {
 
     private val viewModel: MainViewModel by activityViewModels()
+    private lateinit var binding: FragmentDetailBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = FragmentDetailBinding.inflate(inflater)
+        binding = FragmentDetailBinding.inflate(inflater)
         binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = viewModel
+        setupTabLayoutAndPagerLayout()
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewModel.getUserDetail(viewModel.gitUsername.value)
+    }
+
+    /**********************************************************************************/
+    private fun setupTabLayoutAndPagerLayout() {
         val adapter = ViewPagerAdapter(requireActivity())
         // in order to use one fragment for bout following situations numbers added
         adapter.addFragment(FollowFrag(0), "FOLLOWERS")
@@ -32,11 +44,5 @@ class DetailFrag : Fragment() {
         TabLayoutMediator(binding.tabs, binding.viewPager) { tab, position ->
             tab.text = adapter.getTabTitle(position)
         }.attach()
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        viewModel.getUserDetail(viewModel.gitUsername.value)
     }
 }

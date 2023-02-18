@@ -7,8 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.fragment.findNavController
-import com.example.masirgithubusers.R
 import com.example.masirgithubusers.adapters.MainScreenAdapter
 import com.example.masirgithubusers.databinding.FragmentMainScreenBinding
 import com.example.masirgithubusers.viewmodels.MainViewModel
@@ -30,9 +28,10 @@ class MainScreenFrag : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        // searching users using git api
         binding.searchViewHome.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                viewModel.getSearchUser(query)
+                viewModel.getSearchUsers(query)
                 binding.searchViewHome.clearFocus()
                 return false
             }

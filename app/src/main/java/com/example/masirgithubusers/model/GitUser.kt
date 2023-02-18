@@ -7,9 +7,10 @@ data class GitUser (
     @Json(name = "id") val id: Int,
     @Json(name = "avatar_url") val avatarUrl: String
 )
-/*    val id: String,
-    @Json(name = "img_src") val imgSrcUrl: String*/
 
+/**
+ * response would be like this
+ **/
 /*
     "login": "mojombo",
 "id": 1,

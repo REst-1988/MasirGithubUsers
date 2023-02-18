@@ -32,9 +32,4 @@ class SplashScreenFrag : Fragment() {
             3000
         )
     }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        requireActivity().supportFragmentManager.popBackStack()
-    }
 }
